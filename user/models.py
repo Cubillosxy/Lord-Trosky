@@ -1,6 +1,7 @@
-from django.db import models
+from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
+from django.db import models
 
 
 class UserManager(BaseUserManager):
@@ -50,6 +51,12 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(
         max_length=128,
         verbose_name='apellido',
+    )
+
+    document_number = models.CharField(
+        unique=True,
+        max_length=12,
+        verbose_name='número de documento',
     )
 
     is_staff = models.BooleanField(
