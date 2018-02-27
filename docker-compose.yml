@@ -1,0 +1,27 @@
+version: '2'
+services:
+  web:
+    build: .
+    image: lord_trosky
+    command: ./manage.py runserver 0.0.0.0:8000
+    ports:
+      - "3000:3000"
+      - "8000:8000"
+    volumes:
+      - .:/code
+    depends_on:
+      - migration
+      - db
+      - redis
+  db:
+    image: postgres:10.2
+    volumes:
+      - .:/tmp/data/
+  redis:
+    image: redis:3.2.11
+  migration:
+    image: lord_trosky
+    command: ./manage.py migrate --noinput
+    volumes:
+      - .:/code
+
