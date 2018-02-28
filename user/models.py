@@ -29,13 +29,11 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    USERNAME_FIELD = 'document_number'
+    USERNAME_FIELD = 'email'
 
     REQUIRED_FIELDS = [
         'first_name',
         'last_name',
-        'email',
-        'mobile_number',
     ]
 
     email = models.EmailField(

@@ -2,7 +2,7 @@ version: '2'
 services:
   web:
     build: .
-    image: lord_trosky
+    image: lordtrosky
     command: ./manage.py runserver 0.0.0.0:8000
     ports:
       - "3000:3000"
@@ -20,8 +20,8 @@ services:
   redis:
     image: redis:3.2.11
   migration:
-    image: lord_trosky
-    command: ./manage.py migrate --noinput
+    image: lordtrosky
+    command: bash -c "python manage.py check && python manage.py migrate --noinput"
     volumes:
       - .:/code
 

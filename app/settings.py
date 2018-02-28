@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 
 PROJECT_APPS = [
     'user',
+    'blog',
 ]
 # Application definition
 
