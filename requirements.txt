@@ -6,5 +6,5 @@ psycopg2==2.7.3.2
 requests==2.18.4
 django-extensions==2.0.0
 django-webpack-loader==0.6.0
-
+djangorestframework==3.7.7
 
