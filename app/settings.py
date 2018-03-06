@@ -25,7 +25,7 @@ SECRET_KEY = '_i64gb02zd8@ji^rnkzz(a6t)gl!-)&_b3agd#yw4!_2da*1ar'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 PROJECT_APPS = [
     'user',
