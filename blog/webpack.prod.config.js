@@ -9,7 +9,7 @@ let config = require('./webpack.base.config.js');
 config.output.path = require('path').resolve('./static/dist');
 
 config.plugins = config.plugins.concat([
-  new BundleTracker({filename: './webpack-stats-dashboard-prod.json'}),
+  new BundleTracker({filename: './webpack-stats-blog-prod.json'}),
 
   // removes a lot of debugging code in React
   new webpack.DefinePlugin({

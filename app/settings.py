@@ -40,9 +40,11 @@ INSTALLED_APPS = PROJECT_APPS + [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 
     'django_extensions',
-    'rest_framework'
+    'rest_framework',
+    'webpack_loader',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +135,29 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/uploads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json')
+    },
+    'BLOG': {
+        'BUNDLE_DIR_NAME': 'blog_bundles/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'blog/webpack-stats-blog.json'),
+    }
+}
+
+
+DEBUG_REACT = True
+
+if DEBUG_REACT:
+    WEBPACK_LOADER = {
+        'DEFAULT': {
+                    'BUNDLE_DIR_NAME': 'dist/',
+                    'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats-prod.json')
+        },
+        'BLOG': {
+            'BUNDLE_DIR_NAME': 'dist/',
+            'STATS_FILE': os.path.join(BASE_DIR, 'blog/webpack-stats-blog-prod.json'),
+        }
+    }

@@ -5,7 +5,6 @@ services:
     image: lordtrosky
     command: ./manage.py runserver 0.0.0.0:8000
     ports:
-      - "3000:3000"
       - "8000:8000"
     volumes:
       - .:/code
@@ -22,6 +21,20 @@ services:
   migration:
     image: lordtrosky
     command: bash -c "python manage.py check && python manage.py migrate --noinput"
+    volumes:
+      - .:/code
+  node_server:
+    image: lordtrosky
+    command:  bash -c "node blog/server.js"
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/code
+    depends_on:
+      - npm
+  npm:
+    image: lordtrosky
+    command:  bash -c "npm --prefix ./blog install ./blog &&  npm --prefix ./blog run build:prod; mv webpack-stats-blog.json ./blog "
     volumes:
       - .:/code
 
