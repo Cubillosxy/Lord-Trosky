@@ -148,9 +148,9 @@ WEBPACK_LOADER = {
 }
 
 
-DEBUG_REACT = True
+REACT_PRODUCTION = False
 
-if DEBUG_REACT:
+if REACT_PRODUCTION:
     WEBPACK_LOADER = {
         'DEFAULT': {
                     'BUNDLE_DIR_NAME': 'dist/',

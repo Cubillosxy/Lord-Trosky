@@ -12,6 +12,7 @@ services:
       - migration
       - db
       - redis
+      - node_server
   db:
     image: postgres:10.2
     volumes:
@@ -20,21 +21,14 @@ services:
     image: redis:3.2.11
   migration:
     image: lordtrosky
-    command: bash -c "python manage.py check && python manage.py migrate --noinput"
+    command: bash -c "python manage.py check; python manage.py migrate --noinput"
     volumes:
       - .:/code
   node_server:
     image: lordtrosky
-    command:  bash -c "node blog/server.js"
+    command: sh run.sh
     ports:
       - "3000:3000"
-    volumes:
-      - .:/code
-    depends_on:
-      - npm
-  npm:
-    image: lordtrosky
-    command:  bash -c "npm --prefix ./blog install ./blog &&  npm --prefix ./blog run build:prod; mv webpack-stats-blog.json ./blog "
     volumes:
       - .:/code
 

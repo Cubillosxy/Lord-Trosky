@@ -1,13 +1,10 @@
 import App from './component/app';
-import ReactDOM from 'react-dom'
+import React from 'react' ;
+import ReactDOM from 'react-dom';
 import store from './store';
 import {Provider} from 'react-redux';
 
-
-
 const root = document.getElementById('react-app');
-
-
 
 const render = Component => {
   ReactDOM.render(
@@ -18,7 +15,6 @@ const render = Component => {
 };
 
 render(App);
-
 
 if (module.hot) {
     module.hot.accept('./component/app.js', () => {

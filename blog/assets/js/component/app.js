@@ -1,8 +1,9 @@
 /**
- * Created by develop on 3/01/18.
+ * Created by Edwin on 3/01/18.
  */
 import 'bootstrap'
 import React, { Component } from 'react' ;
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 
@@ -17,7 +18,7 @@ class Head extends Component{
                         <span className="icon-bar"></span>
                         <span className="icon-bar"></span>
                     </button>
-                    <a className="navbar-brand" href="#">Contabilidad Rapigo</a>
+                    <a className="navbar-brand" href="#">Blog Trosky</a>
                 </div>
                 <div className="navbar-collapse collapse">
                     <ul className="nav navbar-nav navbar-right">
@@ -43,5 +44,4 @@ Head.propType = {
  //title: PropTypes.string,
 };
 
-
-export default Head;
+export default connect()(Head);
