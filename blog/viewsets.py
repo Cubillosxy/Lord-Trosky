@@ -9,16 +9,8 @@ from .models import Publication
 
 class PublicationViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.PublicationSerializer
+    queryset = Publication.objects.all()
     pagination_class = None
-
-    def get_queryset(self):
-        if (
-            self.request.user.is_authenticated and
-            not self.request.user.is_superuser
-        ):
-            return Publication.objects.all()
-
-        return Publication.objects.all()
 
     def retrieve(self, request, pk=None):
         publication = get_object_or_404(Publication, pk=pk)

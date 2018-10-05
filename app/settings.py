@@ -136,6 +136,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/uploads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+        'blog.permissions.ApiPermission',
+    )
+}
+
 WEBPACK_LOADER = {
     'DEFAULT': {
         'BUNDLE_DIR_NAME': 'bundles/',
@@ -161,3 +168,5 @@ if REACT_PRODUCTION:
             'STATS_FILE': os.path.join(BASE_DIR, 'blog/webpack-stats-blog-prod.json'),
         }
     }
+
+SIGN_API = 'test'
