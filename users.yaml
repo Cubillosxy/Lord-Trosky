@@ -1,0 +1,15 @@
+-   model: user.user
+    pk: 1
+    fields:
+        password: pbkdf2_sha256$120000$xH3Cn68jd3c8$bYs+hXSt/Ur0KCIJN7i8+3qlCk2hiJx4RyzM3Yu0xPI=
+        last_login: 2019-01-21 03:52:56.842545+00:00
+        is_superuser: true
+        email: edwin.dev.email@gmail.com
+        first_name: edwin
+        last_name: c
+        document_number: ''
+        is_staff: true
+        is_active: true
+        created_at: 2018-10-05 03:06:18.356214+00:00
+        groups: []
+        user_permissions: []

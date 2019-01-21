@@ -34,6 +34,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = [
         'first_name',
         'last_name',
+        'document_number',
     ]
 
     email = models.EmailField(
