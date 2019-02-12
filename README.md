@@ -19,6 +19,9 @@ dump:
 restore:
 
     docker exec lord-trosky_db_1 bash -c 'psql --dbname=postgres --username=postgres --command="DROP SCHEMA public CASCADE;CREATE SCHEMA public;" && pg_restore /tmp/data/db.dump --dbname=postgres --username=postgres --no-owner'
+    
+    # restore with psql
+    docker exec -it lord-trosky_db_1 bash -c 'psql postgres --username=postgres < /tmp/data/db.dump'
 
 You can connect to the database shell using:
 
