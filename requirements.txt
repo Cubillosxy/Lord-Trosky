@@ -1,4 +1,4 @@
-Django==2.2
+Django==2.2.3
 ipython==6.2.1
 pep8==1.7.1
 piprot==0.9.7
