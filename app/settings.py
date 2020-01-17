@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ['*']
 PROJECT_APPS = [
     'user',
     'blog',
+    'interview',
 ]
 # Application definition
 
@@ -170,3 +171,9 @@ if REACT_PRODUCTION:
     }
 
 SIGN_API = 'test'
+
+try:
+    from app.local_settings import *
+    #print "using localsettings %s" , ( REDIRECT_URI )
+except ImportError:
+    print('Not local settings loaded')
