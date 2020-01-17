@@ -106,3 +106,4 @@ node_modules/
 webpack-stats-blog.json
 
 db.dump
+local_db
