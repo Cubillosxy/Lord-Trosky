@@ -1,5 +1,5 @@
 Django>=2.2.4
-ipython==7.16.3
+ipython==8.10.0
 pep8==1.7.1
 piprot==0.9.7
 psycopg2==2.7.3.2
